@@ -18,14 +18,14 @@ blueprint:
           entity:
             domain: light
     delay_time:
-      name: Number of minutes 
-      description: Number of minutes, after which the lights will turn off.
+      name: Number of seconds 
+      description: Number of seconds, after which the lights will turn off.
       selector:
         number:
           min: 0
-          max: 10
+          max: 3600
           step: 1
-          unit_of_measurement: "minutes"
+          unit_of_measurement: "seconds"
 
 trigger:
   - platform: state
@@ -45,7 +45,7 @@ action:
       sequence:
       - service: light.turn_on
         data:
-          brightness_pct: 100
+          brightness_pct: 75
         target: !input target_light
     default:
       - service: light.turn_off
