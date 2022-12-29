@@ -37,7 +37,7 @@ trigger:
     from: 'on'
     to: 'off'
     for:
-      minutes: !input delay_time
+      seconds: !input delay_time
 condition: []
 action:
   - choose:
